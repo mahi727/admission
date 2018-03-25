@@ -1,3 +1,4 @@
+<?php $CI =& get_instance(); ?>
 <!DOCTYPE html>
 <html>
 <style>
@@ -29,15 +30,13 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Welcome to my homepage
+                <?php echo $title; ?>
             </h1>
         </section>
 
-        <!-- Main content -->
-        <?php
-/*        $this->load->view('Layout/content');*/
-        ?>
-        <!-- /.content -->
+
+        <?php echo !empty($content) ? $content : ''; ?>
+
     </div>
     <!-- /.content-wrapper -->
     <?php

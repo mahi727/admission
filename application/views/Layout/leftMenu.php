@@ -28,12 +28,12 @@
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
 
-            <li><a href="#"><i
-                            class="fa fa-circle-o"></i> General Elements</a></li>
-            <li><a href="#"><i
-                            class="fa fa-circle-o"></i> Advanced Elements</a></li>
-            <li><a href="#"><i
-                            class="fa fa-circle-o"></i> Editors</a></li>
+            <li>
+                <?php echo anchor( base_url("Tables/"), ' Table1', array('class' => 'fa fa-circle-o', 'title' => 'Table1', )); ?>
+            </li>
+            <li>
+                <?php echo anchor(base_url("Tables/"), '  Table1', array('class' => 'fa fa-circle-o', 'title' => 'Table1', )); ?>
+            </li>
 
 
         </ul>

@@ -14,11 +14,16 @@ class MY_Controller extends CI_Controller
     }
 
 
-    function layout(){
-        $this->load->view('Layout/master');
-
+    public function layout($view_locator, $data = null, $return = false)
+    {
+        $title = (isset($data['title']) ? $data['title'] : 'Home');
+        $headline = (isset($data['headline']) ? $data['headline'] : 'Table');
+        if ($return) {
+            return $this->load->view('Layout/master', ['content' => $this->load->view($view_locator, $data, true), 'title' => $title, 'headline' => $headline]);
+        } else {
+            $this->load->view('Layout/master', ['content' => $this->load->view($view_locator, $data, true), 'title' => $title, 'headline' => $headline]);
+        }
     }
-
 }
 
 

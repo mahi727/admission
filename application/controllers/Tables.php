@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Homes extends MY_Controller
-{
+class Tables extends MY_Controller{
     function __construct()
     {
         parent::__construct();
+        $this->load->model('Table');
 
     }
 
@@ -14,10 +14,10 @@ class Homes extends MY_Controller
      * Index Page for this controller.
      *
      * Maps to the following URL
-     *        http://example.com/index.php/welcome
-     *    - or -
-     *        http://example.com/index.php/welcome/index
-     *    - or -
+     * 		http://example.com/index.php/welcome
+     *	- or -
+     * 		http://example.com/index.php/welcome/index
+     *	- or -
      * Since this controller is set as the default controller in
      * config/routes.php, it's displayed at http://example.com/
      *
@@ -28,8 +28,8 @@ class Homes extends MY_Controller
     public function index()
     {
         $data = [];
-        $data['$title'] = 'My Homepage';
-        $this->layout('Home/dashboard', $data);
+        $this->layout('Tables/table1', $data);
+        //  $this->load->view('Layout/master');
     }
 
 
