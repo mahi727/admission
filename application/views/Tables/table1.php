@@ -16,7 +16,18 @@
 
         <tbody>
         <tr>
-            <td></td>
+            <td>01</td>
+            <td>Muniba</td>
+            <td>Muntaha</td>
+            <td>muni@gmail.com</td>
+            <td>
+                <?php echo anchor(base_url("Tables/view"), '<span class="glyphicon glyphicon-eye-open"></span>',
+                    array('class' => 'btn', 'title' => 'view', )); ?>
+                <?php echo anchor(base_url("Tables/edit"), '<span class="glyphicon glyphicon-edit"></span>',
+                    array('class' => 'btn', 'title' => 'edit', )); ?>
+                <?php echo anchor(base_url("Tables/delete"), '<span class="glyphicon glyphicon-trash"></span>',
+                    array('class' => 'btn', 'title' => 'delete', )); ?>
+            </td>
         </tr>
         </tbody>
     </table>

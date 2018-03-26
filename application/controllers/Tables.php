@@ -32,5 +32,28 @@ class Tables extends MY_Controller{
         //  $this->load->view('Layout/master');
     }
 
+    public function add()
+    {
+        $data = [];
+        $this->layout('Tables/add', $data);
+        //  $this->load->view('Layout/master');
+    }
+
+    public function view()
+    {
+        echo 'view';
+    }
+
+    public function edit()
+    {
+        echo 'edit';
+    }
+
+    public function delete()
+    {
+        echo 'delete';
+    }
+
+
 
 }
