@@ -5,7 +5,7 @@ class Tables extends MY_Controller{
     function __construct()
     {
         parent::__construct();
-        $this->load->model('Table');
+        $this->load->model('Table', 'm');
 
     }
 
@@ -27,7 +27,9 @@ class Tables extends MY_Controller{
      */
     public function index()
     {
-        $data = [];
+        $title =  'Table';
+        $data['parsons'] = $this->m->getdata();
+      //  print_r($data);
         $this->layout('Tables/table1', $data);
         //  $this->load->view('Layout/master');
     }
@@ -37,6 +39,17 @@ class Tables extends MY_Controller{
         $data = [];
         $this->layout('Tables/add', $data);
         //  $this->load->view('Layout/master');
+    }
+
+    public function submit()
+    {
+        $result = $this->m->submit();
+        if($result) {
+            $this->session->set_flashdata('success_msg','Data has been successfully added');
+        }else{
+            $this->session->set_flashdata('error_msg','Sorry! error in ading data');
+        }
+        redirect(base_url('Tables/add'));
     }
 
     public function view()
@@ -54,7 +67,7 @@ class Tables extends MY_Controller{
         echo 'delete';
     }
 
-    public function insert()
+/*    public function insert()
     {
         $sql = $this->db->query("
             select * from parson")->result();
@@ -76,7 +89,7 @@ class Tables extends MY_Controller{
             VALUES  ('$first_name,$last_name,$email')");
 
         redirect('Tables/insert');
-    }
+    }*/
 
 
 
