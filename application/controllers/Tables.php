@@ -54,6 +54,30 @@ class Tables extends MY_Controller{
         echo 'delete';
     }
 
+    public function insert()
+    {
+        $sql = $this->db->query("
+            select * from parson")->result();
+
+        $data = [
+            'parsons' => $sql
+        ];
+        $this->layout('Tables/table1', $data);
+    }
+
+    public function adddata()
+    {
+        $first_name = $this->input->post('first_name');
+        $last_name = $this->input->post('last_name');
+        $email = $this->input->post('email');
+
+        $this->db->query("
+            insert into parson (first_name,last_name,email) 
+            VALUES  ('$first_name,$last_name,$email')");
+
+        redirect('Tables/insert');
+    }
+
 
 
 }
