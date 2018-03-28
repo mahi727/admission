@@ -29,23 +29,21 @@ class Tables extends MY_Controller
     public function index()
     {
         $data['title'] = 'Table';
+        $data['header'] = 'Table';
         $data['parsons'] = $this->Table->getdata();
-        //  print_r($data);
         $this->layout('Tables/table1', $data);
-        //  $this->load->view('Layout/master');
     }
 
     public function add()
     {
         $data = [];
         $data['title'] = 'Add Table';
+        $data['header'] = 'Add New Parson';
         $this->layout('Tables/add', $data);
-        //  $this->load->view('Layout/master');
     }
 
     public function submit()
     {
-       // $posted_data = $this->input->post();
         $result = $this->Table->submit();
         if ($result) {
             $this->session->set_flashdata('success_msg', 'Data has been successfully added');
@@ -59,6 +57,7 @@ class Tables extends MY_Controller
     public function view($id)
     {
         $data['title'] = 'View Table';
+        $data['header'] = 'View Parson';
         $data['parson'] = $this->Table->getParsonById($id);
         $this->layout('Tables/view', $data);
     }
@@ -66,6 +65,7 @@ class Tables extends MY_Controller
     public function edit($id)
     {
         $data['title'] = 'Edit Table';
+        $data['header'] = 'Edit Parson';
         $data['parson'] = $this->Table->getParsonById($id);
         $this->layout('Tables/edit', $data);
     }

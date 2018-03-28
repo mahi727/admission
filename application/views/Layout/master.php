@@ -28,18 +28,14 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-        <section class="content-header">
-
+        <section class="content-header" style="font-weight: bold; font-size: 16px">
+            <?php echo $header;?>
         </section>
 
 
         <?php echo !empty($content) ? $content : ''; ?>
 
     </div>
-    <!-- /.content-wrapper -->
-    <?php
-    $this->load->view('Layout/footer');
-    ?>
 
 </div>
 <!-- ./wrapper -->

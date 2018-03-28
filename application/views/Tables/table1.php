@@ -50,10 +50,17 @@ if ($this->session->flashdata('error_msg')) {
                 <?php echo anchor(base_url("Tables/edit/".$parson->id), '<span class="glyphicon glyphicon-edit"></span>',
                     array('class' => 'btn', 'title' => 'edit',)); ?>
                 <?php echo anchor(base_url("Tables/delete/".$parson->id), '<span class="glyphicon glyphicon-trash"></span>',
-                    array('class' => 'btn', 'title' => 'delete',)); ?>
+                    array('class' => 'btn', 'title' => 'delete', 'onclick' => 'myFunction()')); ?>
             </td>
             <?php } ?>
         </tr>
         </tbody>
     </table>
 </div>
+
+
+<script>
+    function myFunction() {
+        alert("Delete row!");
+    }
+</script>

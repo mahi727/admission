@@ -1,7 +1,4 @@
 
-<section class="content-header">
-    <h1>Edit Parson</h1>
-</section>
 
 <form class="form-horizontal" method="post" action="<?php echo base_url("Tables/update"); ?>">
     <input type="hidden" name="hidden_txt" value="<?php echo  $parson->id; ?>">

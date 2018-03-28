@@ -1,7 +1,4 @@
 
-<section class="content-header">
-    <h1>Add New Parson</h1>
-</section>
 
 <form class="form-horizontal" method="post" action="<?php echo base_url("Tables/submit"); ?>">
     <div class="box-body">

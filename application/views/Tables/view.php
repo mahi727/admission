@@ -1,6 +1,3 @@
-<section class="content-header">
-    <h1>View Parson</h1>
-</section>
 
 <?php echo anchor(base_url("Tables/index"), 'Back', array('class' => 'btn btn-info pull-right', 'title' => 'back',)); ?>
 
