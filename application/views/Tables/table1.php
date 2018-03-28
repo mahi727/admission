@@ -1,3 +1,25 @@
+<!--successfull msg-->
+<?php
+if ($this->session->flashdata('success_msg')) {
+    ?>
+    <div class="alert alert-success">
+        <?php echo $this->session->flashdata('success_msg'); ?>
+    </div>
+    <?php
+}
+?>
+<!--error msg-->
+<?php
+if ($this->session->flashdata('error_msg')) {
+    ?>
+    <div class="alert alert-danger">
+        <?php echo $this->session->flashdata('error_msg'); ?>
+    </div>
+    <?php
+}
+?>
+
+
 <div class="box-body">
     <?php echo anchor(base_url("Tables/add"), 'add new', array('class' => 'btn btn-info pull-left', 'title' => 'add_new',)); ?>
 </div>
@@ -23,11 +45,11 @@
             <td> <?php echo $parson->last_name; ?> </td>
             <td> <?php echo $parson->email; ?> </td>
             <td>
-                <?php echo anchor(base_url("Tables/view"), '<span class="glyphicon glyphicon-eye-open"></span>',
+                <?php echo anchor(base_url("Tables/view/".$parson->id), '<span class="glyphicon glyphicon-eye-open"></span>',
                     array('class' => 'btn', 'title' => 'view',)); ?>
-                <?php echo anchor(base_url("Tables/edit"), '<span class="glyphicon glyphicon-edit"></span>',
+                <?php echo anchor(base_url("Tables/edit/".$parson->id), '<span class="glyphicon glyphicon-edit"></span>',
                     array('class' => 'btn', 'title' => 'edit',)); ?>
-                <?php echo anchor(base_url("Tables/delete"), '<span class="glyphicon glyphicon-trash"></span>',
+                <?php echo anchor(base_url("Tables/delete/".$parson->id), '<span class="glyphicon glyphicon-trash"></span>',
                     array('class' => 'btn', 'title' => 'delete',)); ?>
             </td>
             <?php } ?>

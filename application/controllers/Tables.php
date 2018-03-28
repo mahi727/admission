@@ -1,11 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Tables extends MY_Controller{
+class Tables extends MY_Controller
+{
     function __construct()
     {
         parent::__construct();
-        $this->load->model('Table', 'm');
+        $this->load->model('Table');
 
     }
 
@@ -14,10 +15,10 @@ class Tables extends MY_Controller{
      * Index Page for this controller.
      *
      * Maps to the following URL
-     * 		http://example.com/index.php/welcome
-     *	- or -
-     * 		http://example.com/index.php/welcome/index
-     *	- or -
+     *        http://example.com/index.php/welcome
+     *    - or -
+     *        http://example.com/index.php/welcome/index
+     *    - or -
      * Since this controller is set as the default controller in
      * config/routes.php, it's displayed at http://example.com/
      *
@@ -27,9 +28,9 @@ class Tables extends MY_Controller{
      */
     public function index()
     {
-        $title =  'Table';
-        $data['parsons'] = $this->m->getdata();
-      //  print_r($data);
+        $title = 'Table';
+        $data['parsons'] = $this->Table->getdata();
+        //  print_r($data);
         $this->layout('Tables/table1', $data);
         //  $this->load->view('Layout/master');
     }
@@ -43,54 +44,51 @@ class Tables extends MY_Controller{
 
     public function submit()
     {
-        $result = $this->m->submit();
-        if($result) {
-            $this->session->set_flashdata('success_msg','Data has been successfully added');
-        }else{
-            $this->session->set_flashdata('error_msg','Sorry! error in ading data');
+       // $posted_data = $this->input->post();
+        $result = $this->Table->submit();
+        if ($result) {
+            $this->session->set_flashdata('success_msg', 'Data has been successfully added');
+        } else {
+            $this->session->set_flashdata('error_msg', 'Sorry! error in data ading');
         }
-        redirect(base_url('Tables/add'));
+        redirect(base_url('Tables/index'));
     }
 
-    public function view()
+
+    public function view($id)
     {
-        echo 'view';
+      //  $data['action'] = "view/" .$id;
+        $data['parson'] = $this->Table->getParsonById($id);
+        $this->layout('Tables/view', $data);
     }
 
-    public function edit()
+    public function edit($id)
     {
-        echo 'edit';
+        $data['parson'] = $this->Table->getParsonById($id);
+        $this->layout('Tables/edit', $data);
     }
 
-    public function delete()
+    public function update()
     {
-        echo 'delete';
+        $result = $this->Table->update();
+        if ($result) {
+            $this->session->set_flashdata('success_msg', 'Data update successfully');
+        } else {
+            $this->session->set_flashdata('error_msg', 'Sorry! error in data updating');
+        }
+        redirect(base_url('Tables/index'));
     }
 
-/*    public function insert()
+    public function delete($id)
     {
-        $sql = $this->db->query("
-            select * from parson")->result();
-
-        $data = [
-            'parsons' => $sql
-        ];
-        $this->layout('Tables/table1', $data);
+        $result = $this->Table->delete($id);
+        if ($result) {
+            $this->session->set_flashdata('success_msg', 'Data has been deleted successfully');
+        } else {
+            $this->session->set_flashdata('error_msg', 'Sorry! error in data deleting');
+        }
+        redirect(base_url('Tables/index'));
     }
-
-    public function adddata()
-    {
-        $first_name = $this->input->post('first_name');
-        $last_name = $this->input->post('last_name');
-        $email = $this->input->post('email');
-
-        $this->db->query("
-            insert into parson (first_name,last_name,email) 
-            VALUES  ('$first_name,$last_name,$email')");
-
-        redirect('Tables/insert');
-    }*/
-
 
 
 }

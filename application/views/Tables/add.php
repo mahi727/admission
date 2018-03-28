@@ -1,23 +1,3 @@
-<!--successfull msg-->
-<?php
-    if ($this->session->flashdata('success_msg')) {
-?>
-<div class="alert alert-success">
-    <?php echo $this->session->flashdata('success_msg'); ?>
-</div>
-<?php
-}
-?>
-<!--error msg-->
-<?php
-if ($this->session->flashdata('error_msg')) {
-    ?>
-    <div class="alert alert-danger">
-        <?php echo $this->session->flashdata('error_msg'); ?>
-    </div>
-    <?php
-}
-?>
 
 <section class="content-header">
     <h1>Add New Parson</h1>
@@ -29,14 +9,14 @@ if ($this->session->flashdata('error_msg')) {
             <label for="firstName" class="col-sm-2 control-label">First Name</label>
             <div class="col-sm-10">
                 <input class="form-control" name="firstName" id="firstName" required="required"
-                       placeholder="Enter Your First Name" type="firstName">
+                       placeholder="Enter Your First Name" type="text">
             </div>
         </div>
         <div class="form-group">
             <label for="lastName" class="col-sm-2 control-label">Last Name</label>
             <div class="col-sm-10">
                 <input class="form-control" name="lastName" id="lastName" required="required"
-                       placeholder="Enter Your Last Name" type="firstName">
+                       placeholder="Enter Your Last Name" type="text">
             </div>
         </div>
         <div class="form-group">
