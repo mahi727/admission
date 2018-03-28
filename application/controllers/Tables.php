@@ -28,7 +28,7 @@ class Tables extends MY_Controller
      */
     public function index()
     {
-        $title = 'Table';
+        $data['title'] = 'Table';
         $data['parsons'] = $this->Table->getdata();
         //  print_r($data);
         $this->layout('Tables/table1', $data);
@@ -38,6 +38,7 @@ class Tables extends MY_Controller
     public function add()
     {
         $data = [];
+        $data['title'] = 'Add Table';
         $this->layout('Tables/add', $data);
         //  $this->load->view('Layout/master');
     }
@@ -57,13 +58,14 @@ class Tables extends MY_Controller
 
     public function view($id)
     {
-      //  $data['action'] = "view/" .$id;
+        $data['title'] = 'View Table';
         $data['parson'] = $this->Table->getParsonById($id);
         $this->layout('Tables/view', $data);
     }
 
     public function edit($id)
     {
+        $data['title'] = 'Edit Table';
         $data['parson'] = $this->Table->getParsonById($id);
         $this->layout('Tables/edit', $data);
     }
