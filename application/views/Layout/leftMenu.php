@@ -32,7 +32,10 @@
                 <?php echo anchor( base_url("Homes/"), ' Dashboard', array('class' => 'fa fa-circle-o', 'title' => 'Dashboard', )); ?>
             </li>
             <li>
-                <?php echo anchor(base_url("Tables/"), '  Table1', array('class' => 'fa fa-circle-o', 'title' => 'Table1', )); ?>
+                <?php echo anchor(base_url("Tables/"), '  Table1', array('class' => 'fa fa-circle-o', 'title' => 'Table', )); ?>
+            </li>
+            <li>
+                <?php echo anchor(base_url("Books/"), '  Books', array('class' => 'fa fa-circle-o', 'title' => 'books', )); ?>
             </li>
 
 
