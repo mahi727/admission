@@ -38,18 +38,22 @@ if ($this->session->flashdata('error_msg')) {
         </thead>
 
         <tbody>
-        <?php foreach ($books as $book) { ?>
+        <?php
+        $i = 0;
+        foreach ($books_details as $book) {
+            $i++;
+            ?>
         <tr>
-            <td> <?php echo $book->id; ?> </td>
-            <td> <?php echo $book->book_name; ?> </td>
-            <td> <?php echo $book->auth_name; ?> </td>
-            <td> <?php echo $book->publish_date; ?> </td>
+            <td> <?php echo $i; ?> </td>
+            <td> <?php echo $book['book_name']; ?> </td>
+            <td> <?php echo $book['auth_name']; ?> </td>
+            <td> <?php echo $book['publish_date']; ?> </td>
             <td>
-                <?php echo anchor(base_url("Books/view/".$book->id), '<span class="glyphicon glyphicon-eye-open"></span>',
+                <?php echo anchor(base_url("Books/view/".$book['id']), '<span class="glyphicon glyphicon-eye-open"></span>',
                     array('class' => 'btn', 'title' => 'view',)); ?>
-                <?php echo anchor(base_url("Tables/edit/".$book->id), '<span class="glyphicon glyphicon-edit"></span>',
+                <?php echo anchor(base_url("Tables/edit/".$book['id']), '<span class="glyphicon glyphicon-edit"></span>',
                     array('class' => 'btn', 'title' => 'edit',)); ?>
-                <?php echo anchor(base_url("Tables/delete/".$book->id), '<span class="glyphicon glyphicon-trash"></span>',
+                <?php echo anchor(base_url("Tables/delete/".$book['id']), '<span class="glyphicon glyphicon-trash"></span>',
                     array('class' => 'btn', 'title' => 'delete', 'onclick' => 'myFunction()')); ?>
             </td>
             <?php } ?>

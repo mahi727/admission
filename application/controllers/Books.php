@@ -21,27 +21,34 @@ class Books extends MY_Controller
         $data = [];
         $data['title'] = 'Book';
         $data['header'] = 'My Books List';
-        $data['books'] = $this->Book->get_books_info();
+        $data['books_details'] = $this->Book->get_books_info();
         $this->layout("Books/index", $data);
     }
 
     function add(){
+        if($_POST) {
+            $data = $this->input->post();
+            if($this->Book->add($data)){
+                $this->session->set_flashdata('success',"Data has been succesfully added.");
+                redirect('Books');
+            }
+        }
         $data = [];
         $data['title'] = 'Add Book';
         $data['header'] = 'Add New Book';
         $this->layout("Books/add", $data);
     }
 
-    function insert_data(){
-        $this->Book->insert_data();
-        redirect('Books');
-    }
+    /*    function insert_data(){
+            $this->Book->insert_data();
+            redirect('Books');
+        }
 
-    function view(){
-        $data = [];
-        $data['title'] = 'View Book';
-        $data['header'] = 'View Book Information';
-        $this->layout("Books/view", $data);
-    }
+        function view(){
+            $data = [];
+            $data['title'] = 'View Book';
+            $data['header'] = 'View Book Information';
+            $this->layout("Books/view", $data);
+        }*/
 
 }
