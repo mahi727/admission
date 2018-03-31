@@ -1,31 +1,36 @@
 
-<form class="form-horizontal" method="post" action="<?php echo base_url("Books/add"); ?>">
-    <div class="box-body">
-        <div class="form-group">
-            <label for="firstName" class="col-sm-2 control-label">Book Name</label>
-            <div class="col-sm-10">
-                <input class="form-control" name="book_name" id="bookName" required="required"
-                       placeholder="Enter Book Name" type="text">
-            </div>
+<?php echo form_open("Books/add" , ['class' => 'form-horizontal']); ?>
+<div class="box-body">
+    <?php form_input(['name' => 'id', 'id'=>'id', 'class' =>'form-control'],
+        set_value('name', (isset($row->id) ? $row->id : ""))) ?>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Book Name</label>
+        <div class="col-sm-10">
+            <?php echo form_input(['name' => 'book_name', 'id'=>'bookName', 'class' =>'form-control', 'required' => 'required'],
+                set_value('name', (isset($row->book_name) ? $row->book_name : ""))) ?>
         </div>
-        <div class="form-group">
-            <label for="lastName" class="col-sm-2 control-label">Author Name</label>
-            <div class="col-sm-10">
-                <input class="form-control" name="auth_name" id="authName" required="required"
-                       placeholder="Enter Author Name" type="text">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="email" class="col-sm-2 control-label">Publish Date</label>
-            <div class="col-sm-10">
-                <input class="form-control" name="publish_date" id="date" required="required" type="date">
-            </div>
-        </div>
+    </div>
 
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Author Name</label>
+        <div class="col-sm-10">
+            <?php echo form_input(['name' => 'auth_name', 'id'=>'authName', 'class' =>'form-control', 'required' => 'required'],
+                set_value('name', (isset($row->auth_name) ? $row->auth_name : ""))) ?>
+        </div>
     </div>
-    <!-- /.box-body -->
-    <div class="box-footer">
-        <button type="submit" class="btn btn-info pull-right">Add</button>
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Publish Date</label>
+        <div class="col-sm-10">
+            <?php echo form_input(['name' => 'publish_date', 'id'=>'publish_date', 'class' =>'form-control', 'type'=>'date', 'required' => 'required'],
+                set_value('name', (isset($row->publish_date) ? $row->publish_date : ""))) ?>
+        </div>
     </div>
-    <!-- /.box-footer -->
+
+</div>
+<!-- /.box-body -->
+<div class="box-footer">
+    <?php echo form_submit(array('id' => 'submit', 'type' => 'submit', 'class' => 'btn btn-info pull-right'), 'Save'); ?>
+</div>
+<!-- /.box-footer -->
 </form>

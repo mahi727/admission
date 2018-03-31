@@ -39,16 +39,43 @@ class Books extends MY_Controller
         $this->layout("Books/add", $data);
     }
 
-    /*    function insert_data(){
-            $this->Book->insert_data();
+    function view(){
+        $data['row'] = $this->Book->read();
+        $data['title'] = 'View Book';
+        $data['header'] = 'View Books Information';
+        $data['books_details'] = $this->Book->get_row_by_id();
+        $this->layout("Books/view", $data);
+    }
+
+    function edit($id)
+    {
+        if ($_POST) {
+            $data = $this->input->post($id);
+            if ($this->Book->edit($data)) {
+                $this->session->set_flashdata('success',"Data has been succesfully edited.");
+                redirect('Books', 'refresh');
+            } else {
+                $this->session->set_flashdata('error',"Error!!");
+                redirect('Books', 'refresh');
+            }
+        }
+        $data['row'] = $this->Book->read();
+        $data['title'] = 'Edit Book';
+        $data['header'] = 'Edit Book Information';
+        $this->layout("Books/add", $data);
+    }
+
+    function delete($id)
+    {
+        if ($this->Book->delete($id)) {
+            $this->session->set_flashdata('success', 'success');
+            redirect('Books');
+        } else {
+            $this->session->set_flashdata('error', 'Error!!');
             redirect('Books');
         }
+    }
 
-        function view(){
-            $data = [];
-            $data['title'] = 'View Book';
-            $data['header'] = 'View Book Information';
-            $this->layout("Books/view", $data);
-        }*/
+
 
 }
