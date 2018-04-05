@@ -1,8 +1,6 @@
 
-<?php echo form_open("Books/add" , ['class' => 'form-horizontal']); ?>
+<?php echo form_open("Books/" .$action , ['class' => 'form-horizontal']); ?>
 <div class="box-body">
-    <?php form_input(['name' => 'id', 'id'=>'id', 'class' =>'form-control'],
-        set_value('name', (isset($row->id) ? $row->id : ""))) ?>
     <div class="form-group">
         <label class="col-sm-2 control-label">Book Name</label>
         <div class="col-sm-10">
@@ -33,4 +31,4 @@
     <?php echo form_submit(array('id' => 'submit', 'type' => 'submit', 'class' => 'btn btn-info pull-right'), 'Save'); ?>
 </div>
 <!-- /.box-footer -->
-</form>
+<?php echo form_close(); ?>

@@ -34,24 +34,25 @@ class Books extends MY_Controller
             }
         }
         $data = [];
+        $data['action'] = 'add';
         $data['title'] = 'Add Book';
         $data['header'] = 'Add New Book';
         $this->layout("Books/add", $data);
     }
 
-    function view(){
-        $data['row'] = $this->Book->read();
+
+    function view($id){
+        $data['row'] = $this->Book->get_row_by_id($id);
         $data['title'] = 'View Book';
         $data['header'] = 'View Books Information';
-        $data['books_details'] = $this->Book->get_row_by_id();
         $this->layout("Books/view", $data);
     }
 
-    function edit($id)
+    function edit($id, $data)
     {
         if ($_POST) {
             $data = $this->input->post($id);
-            if ($this->Book->edit($data)) {
+            if ($this->Book->edit($id)) {
                 $this->session->set_flashdata('success',"Data has been succesfully edited.");
                 redirect('Books', 'refresh');
             } else {
@@ -59,7 +60,8 @@ class Books extends MY_Controller
                 redirect('Books', 'refresh');
             }
         }
-        $data['row'] = $this->Book->read();
+        $data['row'] = $this->Book->read($id);
+        $data['action'] = 'edit/' .$id;
         $data['title'] = 'Edit Book';
         $data['header'] = 'Edit Book Information';
         $this->layout("Books/add", $data);

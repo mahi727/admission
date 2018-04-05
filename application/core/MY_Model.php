@@ -23,4 +23,9 @@ class MY_Model extends CI_Model
     {
         return (!empty($d_m_Y)) ? date("Y-m-d", strtotime($d_m_Y)) : NULL;
     }
+
+    public  function pr($data){
+        echo '<pre>';
+        print_r($data); die;
+    }
 }
