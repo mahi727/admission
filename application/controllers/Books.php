@@ -48,11 +48,11 @@ class Books extends MY_Controller
         $this->layout("Books/view", $data);
     }
 
-    function edit($id, $data)
+    function edit($id)
     {
         if ($_POST) {
-            $data = $this->input->post($id);
-            if ($this->Book->edit($id)) {
+            $data = $this->input->post();
+            if ($this->Book->edit( $data, $id)) {
                 $this->session->set_flashdata('success',"Data has been succesfully edited.");
                 redirect('Books', 'refresh');
             } else {

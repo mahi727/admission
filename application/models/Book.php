@@ -27,9 +27,12 @@ class Book extends CI_Model
         return $this->db->query("SELECT * FROM `books_details` where id = '$id' ")->row();
     }
 
-    function edit($book_name, $auth_name, $publish_date )
+    function edit($data, $id )
     {
-        $row_id = $this->get_row_by_id();
+        $row_id = $id;
+        $book_name = $data['book_name'];
+        $auth_name = $data['auth_name'];
+        $publish_date = $data['publish_date'];
         return $this->db->query("UPDATE `books_details` SET book_name = '$book_name',  auth_name = '$auth_name', publish_date = '$publish_date'  WHERE id = '$row_id' ");
     }
 
