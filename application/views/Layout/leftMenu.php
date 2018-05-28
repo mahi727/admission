@@ -32,6 +32,9 @@
                 <?php echo anchor( base_url("Homes/"), ' Dashboard', array('class' => 'fa fa-circle-o', 'title' => 'Dashboard', )); ?>
             </li>
             <li>
+                <?php echo anchor(base_url("Users/"), ' Users', array('class' => 'fa fa-circle-o', 'title' => 'Users') ); ?>
+            </li>
+            <li>
                 <?php echo anchor(base_url("Tables/"), '  Table1', array('class' => 'fa fa-circle-o', 'title' => 'Table', )); ?>
             </li>
             <li>

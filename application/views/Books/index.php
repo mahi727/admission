@@ -10,7 +10,7 @@
 <?php form_close(); ?>
 
 <div class="box-body">
-    <?php echo anchor(base_url("Books/add"), 'add new', array('class' => 'btn btn-info pull-left', 'title' => 'add_new',)); ?>
+    <?php echo anchor(base_url("Books/add"), 'Add New', array('class' => 'btn btn-info pull-left', 'title' => 'add_new',)); ?>
 </div>
 
 <div class="container">
