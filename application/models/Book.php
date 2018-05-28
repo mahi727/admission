@@ -9,10 +9,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class Book extends CI_Model
 {
-    public function get_books_info()
+    public function get_books_info($cond)
     {
-        return $this->db->query("SELECT * FROM `books_details`")->result_array();
+        $query_string = "";
+        if (isset($cond['book_name']) && !empty($cond['book_name'])) {
+            $query_string = " AND `book_name` LIKE '%$cond[book_name]%' ";
+        }
+        return $this->db->query("SELECT * FROM `books_details` WHERE 1=1 $query_string")->result_array();
     }
+
 
     public function add()
     {
@@ -47,5 +52,6 @@ class Book extends CI_Model
         $query = $this->db->query("DELETE FROM `books_details` WHERE id = '$id' ");
         return $query;
     }
+
 
 }

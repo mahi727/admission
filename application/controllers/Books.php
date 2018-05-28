@@ -18,10 +18,10 @@ class Books extends MY_Controller
 
 
     function index(){
-        $data = [];
+        $data = $cond = $this->input->post();
+        $data['books_details'] = $this->Book->get_books_info($cond);
         $data['title'] = 'Book';
         $data['header'] = 'My Books List';
-        $data['books_details'] = $this->Book->get_books_info();
         $this->layout("Books/index", $data);
     }
 

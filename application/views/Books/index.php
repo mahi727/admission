@@ -1,8 +1,17 @@
+<?php echo form_open('Books/index', ['method' => 'post']); ?>
+<div class="col-sm-2">
+        <?php echo form_input('book_name', set_value('book_name', isset($book_name) ? $book_name : ""), ['class' => 'form-control', 'placeholder' => 'Book Name']); ?>
+</div>
+
+<button type="submit" id="submit" class="btn btn-search" style="background-color: forestgreen">
+    <?php echo 'Search'; ?>
+</button>
+
+<?php form_close(); ?>
 
 <div class="box-body">
     <?php echo anchor(base_url("Books/add"), 'add new', array('class' => 'btn btn-info pull-left', 'title' => 'add_new',)); ?>
 </div>
-
 
 <div class="container">
     <table class="table table-responsive table-bordered">
