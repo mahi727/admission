@@ -29,7 +29,7 @@
         <div class="form-group">
             <label class="col-sm-3 control-label">Gender</label>
             <div class="col-sm-8">
-                <?php echo form_dropdown('gender', ['male' => 'Male', 'female' => 'Female'], isset($row['gender']) ? $row['gender'] : '',
+                <?php echo form_dropdown('gender', ['0' => 'Male', '1' => 'Female'], isset($row['gender']) ? $row['gender'] : '',
                     ['class' => 'input_textbox form-control', 'required' => 'required', 'id' => 'gender']); ?>
             </div>
         </div>
