@@ -252,9 +252,38 @@
             </tbody>
         </table>
 
+        <table class="table" >
+            <tbody>
+            <tr>
+                <td>
+                    <input type="file" id="files" accept=".pdf" class="hidden"/>
+                    <h4><label class="badge" for="files">Upload</label></h4>
+                </td>
+                <td>
+                    <div> Upload your photo </div>
+                </td>
+            </tr>
 
-        <input type="file" id="files" accept=".png"/>
-        <h4><label class="badge" for="files">Chose File</label></h4>
+            <tr>
+                <td>
+                    <input type="file" id="files" accept=".pdf" class="hidden"/>
+                    <h4><label class="badge" for="files">Upload</label></h4>
+                </td>
+                <td>
+                    <div> Upload your signature </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="form-input">
+            <input type="checkbox"> This information provided in this application form is true and correct.
+            I accept that IIT reserves the right to cancel my admission at any time if any item of information
+            given by me on this form is found to be materially false or incorrect.
+        </div>
+
+<hr>
+
 
         <div class="form-inline">
             <div class="pull-right">
