@@ -28,9 +28,9 @@ class Homes extends MY_Controller
     public function index()
     {
         $data = [];
-        //$data['$title'] = 'My Homepage';
+        $data['$title'] = 'My Homepage';
         $data['header'] = 'My Dashboard';
-        $this->layout('Home/dashboard', $data);
+        $this->layout('User/index', $data);
     }
 
 
