@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * Time: 2:18 PM
  */
 
-class Books extends MY_Controller
+class Applications extends MY_Controller
 {
     function __construct()
     {
@@ -20,21 +20,21 @@ class Books extends MY_Controller
     function index(){
         $data = $cond = [];
 
-        $this->layout("Books/index", $data);
+        $this->layout("Applications/form", $data);
     }
 
     function add(){
 
         $data = [];
 
-        $this->layout("Books/add", $data);
+        $this->layout("Applications/add", $data);
     }
 
 
     function view($id){
         $data['row'] = [];
 
-        $this->layout("Books/view", $data);
+        $this->layout("Applications/view", $data);
     }
 
 

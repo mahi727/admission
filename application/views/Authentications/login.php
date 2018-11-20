@@ -14,7 +14,7 @@
         margin-left: 20px;
     }
 </style>
-<?php echo form_open( base_url("Authentications/view" ), ['class' => 'login-page']); ?>
+<?php echo form_open( base_url("Notices" ), ['class' => 'login-page']); ?>
 <!--<form action="#" class="login-page" method="post" accept-charset="utf-8">
 -->    <h3 style="text-align: center">Login to your account</h3>
 </br>
@@ -35,7 +35,7 @@
 </div>
 
 <div class="form-inline" style="margin-top: 3px;">Do not have account?
-    <?php echo anchor(base_url("Authentications/add"), ' Register Now', array('class' => 'text-center', 'title' => 'registration',)); ?>
+    <?php echo anchor(base_url("Authentications/registration"), ' Register Now', array('class' => 'text-center', 'title' => 'registration',)); ?>
 
 </div>
 

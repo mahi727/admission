@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * Date: 3/28/2018
  * Time: 2:20 PM
  */
-class Book extends CI_Model
+class Application extends CI_Model
 {
     public function get_books_info($cond)
     {

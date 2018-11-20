@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Homes extends MY_Controller
+class Login extends MY_Controller
 {
     function __construct()
     {
@@ -28,9 +28,7 @@ class Homes extends MY_Controller
     public function index()
     {
         $data = [];
-        $data['$title'] = 'My Homepage';
-        $data['header'] = 'My Dashboard';
-        $this->layout('User/index', $data);
+        $this->layout('Authentications/login', $data);
     }
 
 

@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-class Users extends  MY_Controller
+class Authentications extends  MY_Controller
 {
     function __construct()
     {
@@ -11,37 +11,18 @@ class Users extends  MY_Controller
 
     }
     function index(){
-        $data = $cond = $this->input->post();
-        $data['users'] = $this->User->get_user_list($cond);
-        $data['title'] = 'User';
-        $data['header'] = 'User List';
-        $this->layout("User/index", $data);
+        $data = $cond = [];
+        $this->layout("Authentications/login", $data);
     }
 
-    function add(){
-        if($_POST) {
-            $data = $this->input->post();
-            if($this->User->add($data)){
-                $this->session->set_flashdata('success',"Data has been successfully added.");
-                redirect(base_url('Users'));
-            }
-        }
+    function registration(){
         $data = [];
-        $data['action'] = 'add';
-        $data['title'] = 'Add User';
-        $data['header'] = 'Add New User';
-        $this->layout("User/save", $data);
+        $this->layout("Authentications/registration", $data);
     }
-
-
-
 
     function view(){
-        $data = $cond = $this->input->post();
-        $data['users'] = $this->User->get_user_list($cond);
-        $data['title'] = 'User';
-        $data['header'] = 'User List';
-        $this->layout("User/view", $data);
+        $data = $cond = [];
+        $this->layout("Authentications/view", $data);
     }
 
 
