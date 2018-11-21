@@ -13,6 +13,11 @@
     .form-group {
         margin-left: 20px;
     }
+
+    .hide_div {
+        display: none;
+    }
+
 </style>
 <?php echo form_open( base_url("Notices" ), ['class' => 'login-page']); ?>
 <!--<form action="#" class="login-page" method="post" accept-charset="utf-8">

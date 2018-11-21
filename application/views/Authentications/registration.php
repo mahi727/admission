@@ -8,6 +8,10 @@
         border: solid 1px #eee;
         box-shadow: 0 0 7px #926f93
     }
+
+    .hide_div {
+        display: none;
+    }
 </style>
 <h2 style="text-align: center; text-shadow: 2px 2px #E9BAE8;">Registration</h2>
 

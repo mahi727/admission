@@ -7,8 +7,6 @@ class Authentications extends  MY_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('User');
-
     }
     function index(){
         $data = $cond = [];
