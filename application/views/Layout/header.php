@@ -9,7 +9,7 @@
 
 <header class="main-header" id="main__header">
     <div class="container-fluid" style="text-align: center">
-        <div class="logo" style="position: absolute; margin-top: 12px">
+        <div class="logo col-sm-2" style="position: relative; margin-top: 12px">
             <img id="iitlogo-header" src="http://www.iit.du.ac.bd/assets/img/iitlogo-blue.png" style="width:8em; " alt="IIT Logo">
         </div>
         <h1>PGDIT Online Admission System</h1>
