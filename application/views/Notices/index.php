@@ -11,6 +11,10 @@
         margin-top: 50px;
         margin-bottom: 20px;
     }
+
+    .hide_div_admin {
+        display: none;
+    }
 </style>
 
 <h2 style="text-align: center; text-shadow: 2px 2px #E9BAE8;">Notice</h2>

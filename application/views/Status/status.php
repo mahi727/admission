@@ -3,10 +3,14 @@
         position: relative;
     }
 
-    #form {padding-top:50px;height:500px;}
+    #form {padding-top:150px;height:500px;}
     #payment {padding-top:50px;height:500px;}
     #admit {padding-top:50px;height:500px;}
     #result {padding-top:50px;height:500px;}
+
+    .hide_div_admin {
+        display: none;
+    }
 </style>
 
 <div class="page_body" data-spy="scroll" data-target=".navbar" data-offset="50">

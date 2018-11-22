@@ -17,10 +17,11 @@
     .hide_div_admin {
         display: none;
     }
+
 </style>
-<?php echo form_open( base_url("Applications/" ), ['class' => 'login-page']); ?>
+<?php echo form_open( base_url("Admins/publish_circular" ), ['class' => 'login-page']); ?>
 <!--<form action="#" class="login-page" method="post" accept-charset="utf-8">
--->    <h3 style="text-align: center">Login to your account</h3>
+-->    <h3 style="text-align: center">Admin Signin</h3>
 </br>
 
 <div class="input-group">
@@ -34,14 +35,9 @@
 </div>
 </br>
 <div class="form-inline">
-    <label class="checkbox"><input name="remember" value="1" id="remember" type="checkbox"> Stay Signed in</label>
     <input  name="submit" value="Login" class=".btn-default pull-right" type="submit">
 </div>
 
-<div class="form-inline" style="margin-top: 3px;">Do not have account?
-    <?php echo anchor(base_url("Registrations/"), ' Register Now', array('class' => 'text-center', 'title' => 'registration',)); ?>
-
-</div>
 
 <hr>
 <!--</form>

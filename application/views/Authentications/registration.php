@@ -9,7 +9,7 @@
         box-shadow: 0 0 7px #926f93
     }
 
-    .hide_div {
+    .hide_div, .hide_div_admin {
         display: none;
     }
 </style>

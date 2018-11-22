@@ -11,6 +11,10 @@
         margin-top: 50px;
         margin-bottom: 20px;
     }
+
+    .hide_div_admin {
+        display: none;
+    }
 </style>
 
 <div class="page_body" style="text-align: center">

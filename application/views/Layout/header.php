@@ -14,12 +14,20 @@
         </div>
         <h1>PGDIT Online Admission System</h1>
 
+        <div class="hide_div_admin">
+            <nav class="navbar pull-right" style="margin-bottom: -25px; margin-right: 25px;">
+                <?php echo anchor(base_url("Admins/"), 'Admin Login', array('class' => '', 'title' => 'apply',)); ?>
+            </nav>
+        </div>
+
         <div class="hide_div">
-            <nav class="navbar pull-right">
+            <nav class="navbar pull-right" style="margin-bottom: -25px;">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Home</a></li>
                     <li><a href="#">Change Password</a></li>
-                    <li><a href="#">Logout</a></li>
+                    <li>
+                        <?php echo anchor(base_url("Authentications/"), 'Logout', array('class' => '', 'title' => 'logout',)); ?>
+                    </li>
                 </ul>
             </nav>
         </div>
