@@ -23,22 +23,11 @@ class Applications extends MY_Controller
         $this->layout("Applications/form", $data);
     }
 
-    function add(){
+    function payment(){
 
         $data = [];
 
-        $this->layout("Applications/add", $data);
+        $this->layout("Applications/payment", $data);
     }
-
-
-    function view($id){
-        $data['row'] = [];
-
-        $this->layout("Applications/view", $data);
-    }
-
-
-
-
 
 }

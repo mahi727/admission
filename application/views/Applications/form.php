@@ -287,8 +287,8 @@
 
         <div class="form-inline">
             <div class="pull-right">
-                <?php echo anchor(base_url("Authentications/dashboard"), 'Cancel', array('class' => 'btn btn-info', 'title' => 'cancel',)); ?>
-                <button type="submit" class="btn btn-success ">Submit</button>
+                <?php echo anchor(base_url("Notices/index"), 'Cancel', array('class' => 'btn btn-info', 'title' => 'cancel',)); ?>
+                <?php echo anchor(base_url("Applications/payment"), 'Submit', array('class' => 'btn btn-success', 'title' => 'submit',)); ?>
             </div>
         </div>
     </form>

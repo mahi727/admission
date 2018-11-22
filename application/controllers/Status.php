@@ -7,25 +7,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * Time: 2:18 PM
  */
 
-class Notices extends MY_Controller
+class Status extends MY_Controller
 {
     function __construct()
     {
         parent::__construct();
-
-
     }
 
 
     function index(){
         $data = $cond = [];
-
-        $this->layout("Notices/index", $data);
+        $this->layout("Status/dashboard", $data);
     }
 
-
-
-
-
+    function status(){
+        $data = [];
+        $this->layout("Status/status", $data);
+    }
 
 }

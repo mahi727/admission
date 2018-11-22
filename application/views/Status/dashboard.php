@@ -13,20 +13,18 @@
     }
 </style>
 
-<h2 style="text-align: center; text-shadow: 2px 2px #E9BAE8;">Notice</h2>
-
 <div class="page_body" style="text-align: center">
 
     <h4>PGDIT Admission</h4>
 
     <a href="<?php echo base_url() . "assets/"; ?>dist/img/6c8b1b13-4d4a-4904-8fbf-33757abdb150__notice_30-Oct-2018_2.pdf" download>
-            <button class="btn btn-primary" style="margin-top: 45px">Download Circular </button>
+        <button class="btn btn-primary" style="margin-top: 45px">Download Circular </button>
     </a>
 
-<div style="height: 30px"></div>
+    <div style="height: 30px"></div>
 
     <div style="text-align: center">
-        <?php echo anchor(base_url("Applications/"), 'Apply Now', array('class' => 'btn btn-primary', 'title' => 'apply',)); ?>
+        <?php echo anchor(base_url("Status/status"), 'View Admission Details', array('class' => 'btn btn-primary', 'title' => 'apply',)); ?>
     </div>
 
 </div>
