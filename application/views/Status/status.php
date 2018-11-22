@@ -2,6 +2,7 @@
     .page_body {
         position: relative;
     }
+
     #form {padding-top:50px;height:500px;}
     #payment {padding-top:50px;height:500px;}
     #admit {padding-top:50px;height:500px;}
@@ -60,4 +61,5 @@
     function moveTop() {
         document.getElementById("status").style.top = "0px";
     }
+
 </script>

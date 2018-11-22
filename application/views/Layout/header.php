@@ -3,10 +3,11 @@
         text-align: center;
         position: relative;
         margin-left: 25px;
+        background-color: white;
     }
 </style>
 
-<header class="main-header">
+<header class="main-header" id="main__header">
     <div class="container-fluid" style="text-align: center">
         <div class="logo" style="position: absolute; margin-top: 12px">
             <img id="iitlogo-header" src="http://www.iit.du.ac.bd/assets/img/iitlogo-blue.png" style="width:8em; " alt="IIT Logo">
