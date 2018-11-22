@@ -31,4 +31,28 @@ class Admins extends MY_Controller
         $this->layout("Admins/admin_dashboard", $data);
     }
 
+    function applications(){
+        $data = [];
+        $this->layout("Admins/applications", $data);
+    }
+
+    function admit(){
+        $data = [];
+        $this->layout("Admins/admit", $data);
+    }
+
+    function seat(){
+        $data = [];
+        $this->layout("Admins/seat", $data);
+    }
+
+    function attendance(){
+        $data = [];
+        $this->layout("Admins/attendance", $data);
+    }
+
+    function result(){
+        $data = [];
+        $this->layout("Admins/result", $data);
+    }
 }
