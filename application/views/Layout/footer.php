@@ -4,8 +4,6 @@
         color: white;
         text-shadow: 2px 2px rgba(119, 119, 119, 0.81);
     }
-
-
 </style>
 
 <footer class="main-footer  navbar-fixed-bottom">
