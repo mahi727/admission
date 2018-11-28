@@ -27,7 +27,7 @@
         <div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li><a href="#form" onclick="moveTop()">Application Form Submission</a></li>
+                    <li class="active"><a href="#form" onclick="moveTop()">Application Form Submission</a></li>
                     <li><a href="#payment" onclick="moveTop()">Payment</a></li>
                     <li><a href="#admit" onclick="moveTop()">Admit Card</a></li>
                     <li><a href="#result" onclick="moveTop()">Result</a></li>

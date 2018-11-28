@@ -27,12 +27,18 @@
             </br>
 
             <div class="form-group">
-                <label class="control-label col-sm-6">Click the button to pulblish result:</label>
+                <label class="control-label col-sm-6">Upload result as pdf format to publish it:</label>
                 <div class="col-sm-2" style="margin-top: -5px">
-                    <?php echo anchor(base_url("Applications/payment"), 'Publish', array('class' => 'btn btn-primary', 'title' => 'submit', 'style' => 'margin-right:350px')); ?>
+                    <input type="file" id="files" accept=".pdf" class="hidden"/>
+                    <h4><label class="badge" for="files">Upload Result</label></h4>
                 </div>
             </div>
         </div>
+
+        <div class="pull-right">
+            <?php echo anchor(base_url("Applications/payment"), 'Publish', array('class' => 'btn btn-primary', 'title' => 'submit', 'style' => 'margin-right:350px')); ?>
+        </div>
+
 
     </div>
 </div>

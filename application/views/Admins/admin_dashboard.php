@@ -13,7 +13,7 @@
 
 
 <div class="container-fluid text-center">
-    <div class="row content">
+    <div class="row content" style="margin-top: 5px">
         <div class="col-sm-2 sidenav">
             <ul class="nav nav-pills nav-stacked">
                 <li class="active"><?php echo anchor(base_url("Admins/admin_dashboard"), 'Admission Circular', array('class' => '', 'title' => 'circular',)); ?></li>

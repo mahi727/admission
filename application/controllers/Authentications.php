@@ -7,21 +7,28 @@ class Authentications extends  MY_Controller
     function __construct()
     {
         parent::__construct();
+        $this->load->model('Authentication');
     }
     function index(){
         $data = $cond = [];
+        $data['title'] = 'PGDIT Admission';
+        $data['header'] = '';
         $this->layout("Authentications/login", $data);
     }
 
     function registration(){
         $data = [];
+        $data['title'] = 'Registration';
+        $data['header'] = '';
         $this->layout("Authentications/registration", $data);
     }
 
-    function view(){
-        $data = $cond = [];
-        $this->layout("Authentications/view", $data);
+    function change_password(){
+        $data = [];
+        $this->layout("Authentications/change_password", $data);
     }
+
+
 
 
 }

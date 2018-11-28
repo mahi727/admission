@@ -12,14 +12,13 @@ class Notices extends MY_Controller
     function __construct()
     {
         parent::__construct();
-
-
+        $this->load->model('Notice');
     }
-
 
     function index(){
         $data = $cond = [];
-
+        $data['title'] = 'Notice';
+        $data['header'] = 'Registration';
         $this->layout("Notices/index", $data);
     }
 
