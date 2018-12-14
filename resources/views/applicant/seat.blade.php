@@ -18,7 +18,7 @@
 <div class="container-fluid text-center">
     <div class="row content" style="margin-top: 5px">
         <div class="col-sm-2 sidenav">
-            @include('applicant.side_nav');
+            @include('applicant.side_nav')
         </div>
 
         <div id="seat" class="container-fluid col-sm-8" style="text-align: center">

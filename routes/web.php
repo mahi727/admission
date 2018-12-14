@@ -26,9 +26,12 @@ Auth::routes();
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::group(['middleware' => ['auth']], function(){
+     
 	Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/circular/publish', 'HomeController@circular_publish')->name('circular.publish');
     Route::post('/circular/upload', 'HomeController@circular_upload')->name('circular.upload');
+
+    Route::post('/sign/upload', 'HomeController@sign_upload')->name('sign.upload');
 
     Route::get('/apply', 'HomeController@show_application_form')->name('apply');
     Route::resource('applications', 'ApplicationController');
@@ -40,11 +43,14 @@ Route::group(['middleware' => ['auth']], function(){
 
     Route::resource('seatplans', 'SeatPlanController');
     Route::get('/seatplan/publish', 'SeatPlanController@publish')->name('seatplans.publish');
+    Route::get('/seatplan/destroy/{id}', 'SeatPlanController@destroy')->name('seatplans.destroy');
 
+    Route::get('/attendance/download', 'HomeController@download_attendance')->name('attendance.download');
+    
     Route::get('/attendance', 'HomeController@attendance_sheet')->name('attendance');
     Route::post('/attendance/upload', 'HomeController@attendance_sheet_upload')->name('attendance_sheet.upload');
 
-    Route::get('/result', 'HomeController@result')->name('result');
+    Route::get('/result', 'HomeController@result')->name('admin.result');
     Route::post('/result/upload', 'HomeController@result_upload')->name('result.upload');
 
     Route::get('/checkout/payment', 'PaypalController@checkout')->name('payment.checkout');
@@ -64,7 +70,7 @@ Route::group(['middleware' => ['auth']], function(){
         return view('applicant.seat');
     })->name('seatplan');
 
-    Route::get('/result', function(){
+    Route::get('/result/view', function(){
         return view('applicant.result');
     })->name('result');
 

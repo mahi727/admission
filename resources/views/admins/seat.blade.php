@@ -14,7 +14,7 @@
     <div class="container-fluid text-center">
         <div class="row content">
             <div class="col-sm-2 sidenav">
-                @include('administrator.side_nav');
+                @include('administrator.side_nav')
             </div>
 
 
@@ -30,6 +30,7 @@
                                 <th>Room No</th>
                                 <th>Capacity</th>
                                 <th>Roll No</th>
+                                <th width="10%">Options</th>
                             </tr>
                         </thead>
 
@@ -39,6 +40,16 @@
                                     <td>{{ $seatplan->room_no }}</td>
                                     <td>{{ $seatplan->capacity }}</td>
                                     <td>{{ $seatplan->starting_roll }}-{{ $seatplan->ending_roll }}</td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Actions
+                                            <span class="caret"></span></button>
+                                            <ul class="dropdown-menu">
+                                              <li><a href="{{ route('seatplans.edit', $seatplan->id)}}">Edit</a></li>
+                                              <li><a href="{{ route('seatplans.destroy', $seatplan->id) }}">Delete</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

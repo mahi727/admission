@@ -4,5 +4,5 @@
     <li class="{{ areActiveRoutes(['admitcard.index']) }}"><a href="{{ route('admitcard.index') }}" class="" title="admit">Admit Card</a></li>
     <li class="{{ areActiveRoutes(['seatplans.index', 'seatplans.create']) }}"><a href="{{ route('seatplans.index') }}" class="" title="seat_plan">Seat Plan</a></li>
     <li class="{{ areActiveRoutes(['attendance']) }}"><a href="{{ route('attendance') }}" class="" title="attendance">Attendance Sheet</a></li>
-    <li class="{{ areActiveRoutes(['result']) }}"><a href="{{ route('result') }}" class="" title="result">Result</a></li>
+    <li class="{{ areActiveRoutes(['admin.result']) }}"><a href="{{ route('admin.result') }}" class="" title="result">Result</a></li>
 </ul>

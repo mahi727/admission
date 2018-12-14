@@ -257,11 +257,11 @@
                             <input type="text" class="form-control" id="cgpa" placeholder="" name="cgpa" required>
                         </td>
                         <td>
-                            <input type="file" id="honors_marksheet" accept=".pdf" class="hidden" name="honors_marksheet">
+                            <input type="file" id="honors_marksheet" accept=".pdf" class="hidden" name="honors_marksheet" required>
                             <h4><label class="badge" for="honors_marksheet">Upload</label></h4>
                         </td>
                         <td>
-                            <input type="file" id="honors_certificate" accept=".pdf" class="hidden" name="honors_certificate">
+                            <input type="file" id="honors_certificate" accept=".pdf" class="hidden" name="honors_certificate" required>
                             <h4><label class="badge" for="honors_certificate">Upload</label></h4>
                         </td>
                     </tr>
@@ -273,7 +273,7 @@
                     <tr>
                         <td>
                             <input type="file" id="photo" accept=".jpg" class="hidden" name="photo">
-                            <h4><label class="badge" for="photo">Upload</label></h4>
+                            <h4><label class="badge" for="photo" required>Upload</label></h4>
                         </td>
                         <td>
                             <div> Upload your photo </div>
@@ -283,7 +283,7 @@
                     <tr>
                         <td>
                             <input type="file" id="sign" accept=".jpg" class="hidden" name="sign">
-                            <h4><label class="badge" for="sign">Upload</label></h4>
+                            <h4><label class="badge" for="sign" required>Upload</label></h4>
                         </td>
                         <td>
                             <div> Upload your signature </div>

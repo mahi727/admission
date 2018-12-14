@@ -10,8 +10,8 @@
     <div class="footer" style="text-align: center;">
         <p>
             <span class="glyphicon glyphicon-home"></span><a href="http://www.iit.du.ac.bd/" style="color: white"> www.iit.du.ac.bd </a>
-            <span class="glyphicon glyphicon-envelope"></span> +8801779482994
-            <span class="glyphicon glyphicon-earphone"></span> admission.support@iit.du.ac.bd
+            <span class="glyphicon glyphicon-envelope"></span> admission.support@iit.du.ac.bd 
+            <span class="glyphicon glyphicon-earphone"></span> +8801779482994
         </p>
         <strong>Copyright &copy; BSSE0727,IIT,DU</strong> All rights
         reserved.

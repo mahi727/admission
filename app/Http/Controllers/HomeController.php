@@ -73,6 +73,59 @@ class HomeController extends Controller
             $setting->save();
         }
 
+
+        $setting = Setting::where('type', 'session_year')->first();
+        if($setting == null){
+            $setting = new Setting;
+            $setting->type = 'session_year';
+            $setting->value = $request->session_year;
+            $setting->save();
+        }
+        else{
+            $setting->value = $request->session_year;
+            $setting->save();
+        }
+
+        return back();
+    }
+
+    public function sign_upload(Request $request){
+        $setting = Setting::where('type', 'sign_link')->first();
+        if($setting == null){
+            $setting = new Setting;
+            $setting->type = 'sign_link';
+            $setting->value = $request->sign->store('uploads/sign');
+            $setting->save();
+        }
+        else{
+            $setting->value = $request->sign->store('uploads/sign');
+            $setting->save();
+        }
+
+        $setting = Setting::where('type', 'submission_date')->first();
+        if($setting == null){
+            $setting = new Setting;
+            $setting->type = 'submission_date';
+            $setting->value = strtotime($request->submission_date);
+            $setting->save();
+        }
+        else{
+            $setting->value = strtotime($request->submission_date);
+            $setting->save();
+        }
+
+        $setting = Setting::where('type', 'exam_date')->first();
+        if($setting == null){
+            $setting = new Setting;
+            $setting->type = 'exam_date';
+            $setting->value = strtotime($request->exam_date);
+            $setting->save();
+        }
+        else{
+            $setting->value = strtotime($request->exam_date);
+            $setting->save();
+        }
+
         return back();
     }
 
@@ -159,6 +212,14 @@ class HomeController extends Controller
 
         return back();
     }
+
+    public function download_attendance(Request $request)
+    {
+        $applications = Application::where('approval_status', 'Eligible')->get();
+        $pdf = PDF::loadView('admins.attendance_sheet', compact('applications'));
+        return $pdf->download('attendance_sheet.pdf');
+    }
+
 
     public function download_admit(Request $request)
     {

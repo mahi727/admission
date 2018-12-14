@@ -98,7 +98,7 @@ class ApplicationController extends Controller
             $application->sign = $request->sign->store('uploads');
         }
 
-        $application->application_id = Application::last()->application_id + 1;
+        $application->application_id = Application::all()->last()->application_id + 1;
 
         if($application->save()){
             redirect()->route('home');

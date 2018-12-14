@@ -66,7 +66,8 @@ class SeatPlanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $seatplan = SeatPlan::findOrFail($id);
+        return view('admins.seat_edit', compact('seatplan'));
     }
 
     /**
@@ -78,7 +79,14 @@ class SeatPlanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $seatplan = SeatPlan::findOrFail($id);
+        $seatplan->room_no = $request->room_no;
+        $seatplan->capacity = $request->capacity;
+        $seatplan->starting_roll = $request->starting_roll;
+        $seatplan->ending_roll = $request->ending_roll;
+        $seatplan->save();
+
+        return redirect()->route('seatplans.index');
     }
 
     /**
@@ -89,7 +97,8 @@ class SeatPlanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        SeatPlan::destroy($id);
+        return redirect()->route('seatplans.index');
     }
 
     public function publish(Request $request)

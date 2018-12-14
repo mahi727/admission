@@ -21,11 +21,6 @@
         }
     </style>
 
-    <div style="margin-left: 200px; margin-right: 200px; margin-top: 50px; margin-bottom: 10px">
-        <marquee attribute_name = "attribute_value" style="color: red;">
-            Online application submission has been extended till {{ date('M d, Y', \App\Setting::where('type', 'submission_date')->first()->value) }}. Exam Date has been rescheduled to {{ date('M d, Y', \App\Setting::where('type', 'exam_date')->first()->value) }}.
-        </marquee>
-    </div>
 
     <div class="container">
         <div class="card card-container">
@@ -35,26 +30,25 @@
                 </br>
 
                 <div class="input-group">
+                    <label>Current Password</label>
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                     <input id="username" type="text" class="form-control" name="email" placeholder="Email">
                 </div>
                 </br>
 
                 <div class="input-group">
+                    <label>New Password</label>
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                     <input id="password" type="password" class="form-control" name="password" placeholder="Password">
                 </div>
                 </br>
 
-                <div class="form-inline">
-                    <label class="checkbox"><input name="remember" value="1" id="remember" type="checkbox"> Stay Signed in</label>
-                    <input  name="submit" value="Login" class="btn btn-info pull-right" type="submit">
+                 <div class="input-group">
+                    <label>Confirm New Password</label>
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input id="password" type="password" class="form-control" name="password" placeholder="Password">
                 </div>
                 </br>
-
-                <div class="form-inline">Do not have account?
-                    <a href="{{ route('register') }}" class="text-center">Register Now</a>
-                </div>
 
                 <hr>
             </form>
