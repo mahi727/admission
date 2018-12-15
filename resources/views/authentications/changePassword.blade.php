@@ -24,31 +24,26 @@
 
     <div class="container">
         <div class="card card-container">
-            <form action="{{ route('login') }}" method="POST">
+            <form action="{{ route('password_update') }}" method="POST">
                 @csrf
                 <h3 style="text-align: center">Applicant Login</h3>
                 </br>
 
                 <div class="input-group">
-                    <label>Current Password</label>
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                    <input id="username" type="text" class="form-control" name="email" placeholder="Email">
-                </div>
-                </br>
-
-                <div class="input-group">
                     <label>New Password</label>
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                    <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+                    <input id="password" type="password" class="form-control" name="new_password" placeholder="Password">
                 </div>
                 </br>
 
                  <div class="input-group">
                     <label>Confirm New Password</label>
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                    <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+                    <input id="password" type="password" class="form-control" name="confirm_password" placeholder="Confirm Password">
                 </div>
                 </br>
+
+                <div class="form-inline">
+                    <input  name="submit" value="Change Password" class="btn btn-info pull-right" type="submit">
+                </div>
 
                 <hr>
             </form>

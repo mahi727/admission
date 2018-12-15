@@ -14,7 +14,7 @@
             padding: 5px;
         }
 
-    
+
     </style>
 
 
@@ -50,7 +50,7 @@
                         <div class="form-group">
                             <label class="control-label col-sm-5" style="text-align: left;">Upload Director Signature</label>
                             <div class="col-sm-3">
-                                <input type="file" id="files" accept=".jpg" name="sign" class="hidden" required/>
+                                <input type="file" id="files" accept=".png" name="sign" class="hidden" required/>
                                 <h4><label class="badge" for="files">Upload Signature</label></h4>
                             </div>
                         </div>

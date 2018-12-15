@@ -7,6 +7,7 @@ use Auth;
 use App\Setting;
 use App\Application;
 use PDF;
+use Hash;
 
 class HomeController extends Controller
 {
@@ -37,6 +38,10 @@ class HomeController extends Controller
         }
         elseif (Auth::user()->user_type == 'administrator') {
             return view('administrator.home');
+        }
+
+        elseif (Auth::user()->user_type == 'scrutinizer') {
+            return redirect()->route('applications.index');
         }
 
         elseif (Auth::user()->user_type == 'applicant') {
@@ -129,9 +134,15 @@ class HomeController extends Controller
         return back();
     }
 
-    public function show_application_form(Request $request)
+    public function apply()
     {
         return view('applications.form');
+    }
+
+    public function show_application_form(Request $request)
+    {
+        $application = Auth::user()->application;
+        return view('applications.show', compact('application'));
     }
 
     public function admitcard(Request $request)
@@ -145,8 +156,8 @@ class HomeController extends Controller
         $setting->value = 1;
         $setting->save();
 
-        $roll = 2018001;
-        foreach (Application::where('approval_status', 'Eligible')->get() as $key => $application) {
+        $roll = (int)Setting::where('type', 'session_year')->first()->value.'001';
+        foreach (Application::where('session', Setting::where('type', 'session_year')->first()->value)->where('approval_status', 'Eligible')->get() as $key => $application) {
             $application->roll = $roll;
             $application->save();
             $roll++;
@@ -215,7 +226,7 @@ class HomeController extends Controller
 
     public function download_attendance(Request $request)
     {
-        $applications = Application::where('approval_status', 'Eligible')->get();
+        $applications = Application::where('session', Setting::where('type', 'session_year')->first()->value)->where('approval_status', 'Eligible')->get();
         $pdf = PDF::loadView('admins.attendance_sheet', compact('applications'));
         return $pdf->download('attendance_sheet.pdf');
     }
@@ -226,5 +237,21 @@ class HomeController extends Controller
         $application = Auth::user()->application;
         $pdf = PDF::loadView('applicant.admit_card', compact('application'));
         return $pdf->download('admit-'.$application->roll.'.pdf');
+    }
+
+    public function change_password()
+    {
+        return view('authentications.changePassword');
+    }
+
+    public function password_update(Request $request)
+    {
+        if($request->new_password == $request->confirm_password){
+            $user = Auth::user();
+            $user->password = Hash::make($request->new_password);
+            $user->save();
+        }
+
+        return redirect()->route('home');
     }
 }

@@ -41,14 +41,16 @@
                                     <td>{{ $seatplan->capacity }}</td>
                                     <td>{{ $seatplan->starting_roll }}-{{ $seatplan->ending_roll }}</td>
                                     <td>
-                                        <div class="dropdown">
-                                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Actions
-                                            <span class="caret"></span></button>
-                                            <ul class="dropdown-menu">
-                                              <li><a href="{{ route('seatplans.edit', $seatplan->id)}}">Edit</a></li>
-                                              <li><a href="{{ route('seatplans.destroy', $seatplan->id) }}">Delete</a></li>
-                                            </ul>
-                                        </div>
+                                        @if (Auth::user()->user_type != 'program-chair')
+                                            <div class="dropdown">
+                                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Actions
+                                                <span class="caret"></span></button>
+                                                <ul class="dropdown-menu">
+                                                  <li><a href="{{ route('seatplans.edit', $seatplan->id)}}">Edit</a></li>
+                                                  <li><a href="{{ route('seatplans.destroy', $seatplan->id) }}">Delete</a></li>
+                                                </ul>
+                                            </div>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach
@@ -56,9 +58,11 @@
                     </table>
                 </div>
 
-                <div class="pull-right">
-                    <a href="{{ route('seatplans.create') }}" class="btn btn-success" title="submit">Add New Room</a>
-                </div>
+                @if (Auth::user()->user_type != 'program-chair')
+                    <div class="pull-right">
+                        <a href="{{ route('seatplans.create') }}" class="btn btn-success" title="submit">Add New Room</a>
+                    </div>
+                @endif
 
                 @if(\App\Setting::where('type', 'seat_plan_published')->first()->value != 1)
                     <div class="form-group" style="margin-top: 95px">

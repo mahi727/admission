@@ -23,12 +23,14 @@
 
                 </br>
 
-                <div class="form-group">
-                    <label class="control-label col-sm-6">Click the button to pulblish admit card:</label>
-                    <div class="col-sm-2" style="margin-top: -5px">
-                        <a href="{{ route('admitcard.publish') }}" class="btn btn-primary" title="submit" style="margin-right:350px">Publish</a>
+                @if (Auth::user()->user_type != 'program-chair')
+                    <div class="form-group">
+                        <label class="control-label col-sm-6">Click the button to pulblish admit card:</label>
+                        <div class="col-sm-2" style="margin-top: -5px">
+                            <a href="{{ route('admitcard.publish') }}" class="btn btn-primary" title="submit" style="margin-right:350px">Publish</a>
+                        </div>
                     </div>
-                </div>
+                @endif
             </div>
 
         </div>

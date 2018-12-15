@@ -20,6 +20,10 @@
             display: none;
         }
 
+        .file{
+            max-width: 150px;
+        }
+
     </style>
 
     <h2 style="text-align: center; text-shadow: 2px 2px #E9BAE8;">Application Form</h2>
@@ -27,7 +31,7 @@
     <div class="container">
 
         <div class="card card-container">
-            <form action="{{ route('applications.store') }}" class="form-horizontal" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+            <form action="{{ route('applications.store') }}" id="form" class="form-horizontal" method="post" accept-charset="utf-8" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label class="control-label col-sm-3">Name of Applicant:</label>
@@ -67,7 +71,7 @@
                 <div class="form-group">
                     <label class="control-label col-sm-3">Date of Birth:</label>
                     <div class="col-sm-8">
-                        <input type="date" class="form-control" id="birthDate" placeholder="" name="birthDate" required>
+                        <input type="text" data-provide="datepicker" class="form-control" id="birthDate" placeholder="" name="birthDate" required>
                     </div>
                 </div>
 
@@ -150,12 +154,10 @@
                             <input type="text" min="0" class="form-control" id="ssc_gpa" placeholder="" name="ssc_gpa" required>
                         </td>
                         <td>
-                            <input type="file" id="ssc_marksheet" accept=".pdf" class="hidden" name="ssc_marksheet">
-                            <h4><label class="badge" for="ssc_marksheet">Upload</label></h4>
+                            <input type="file" id="ssc_marksheet" accept=".pdf" class="file" name="ssc_marksheet">
                         </td>
                         <td>
-                            <input type="file" id="files" accept=".pdf" class="hidden" name="ssc_certificate">
-                            <h4><label class="badge" for="files">Upload</label></h4>
+                            <input type="file" id="files" accept=".pdf" class="file" name="ssc_certificate">
                         </td>
                     </tr>
 
@@ -206,12 +208,10 @@
                             <input type="text" min="0" class="form-control" id="gpa" placeholder="" name="hsc_gpa" required>
                         </td>
                         <td>
-                            <input type="file" id="hsc_marksheet" accept=".pdf" class="hidden" name="hsc_marksheet">
-                            <h4><label class="badge" for="hsc_marksheet">Upload</label></h4>
+                            <input type="file" id="hsc_marksheet" accept=".pdf" class="file" name="hsc_marksheet">
                         </td>
                         <td>
-                            <input type="file" id="hsc_certificate" accept=".pdf" class="hidden" name="hsc_certificate">
-                            <h4><label class="badge" for="hsc_certificate">Upload</label></h4>
+                            <input type="file" id="hsc_certificate" accept=".pdf" class="file" name="hsc_certificate">
                         </td>
                     </tr>
                     </tbody>
@@ -257,12 +257,10 @@
                             <input type="text" class="form-control" id="cgpa" placeholder="" name="cgpa" required>
                         </td>
                         <td>
-                            <input type="file" id="honors_marksheet" accept=".pdf" class="hidden" name="honors_marksheet" required>
-                            <h4><label class="badge" for="honors_marksheet">Upload</label></h4>
+                            <input type="file" id="honors_marksheet" accept=".pdf" class="file" name="honors_marksheet" required>
                         </td>
                         <td>
-                            <input type="file" id="honors_certificate" accept=".pdf" class="hidden" name="honors_certificate" required>
-                            <h4><label class="badge" for="honors_certificate">Upload</label></h4>
+                            <input type="file" id="honors_certificate" accept=".pdf" class="file" name="honors_certificate" required>
                         </td>
                     </tr>
                     </tbody>
@@ -272,8 +270,7 @@
                     <tbody>
                     <tr>
                         <td>
-                            <input type="file" id="photo" accept=".jpg" class="hidden" name="photo">
-                            <h4><label class="badge" for="photo" required>Upload</label></h4>
+                            <input type="file" id="photo" accept=".jpg" class="" name="photo">
                         </td>
                         <td>
                             <div> Upload your photo </div>
@@ -282,8 +279,7 @@
 
                     <tr>
                         <td>
-                            <input type="file" id="sign" accept=".jpg" class="hidden" name="sign">
-                            <h4><label class="badge" for="sign" required>Upload</label></h4>
+                            <input type="file" id="sign" accept=".jpg" class="" name="sign">
                         </td>
                         <td>
                             <div> Upload your signature </div>
@@ -323,5 +319,79 @@
         document.getElementById("honors_year").innerHTML = options;
     </script>
 
+@endsection
 
+@section('script')
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $('#birthDate').datepicker({
+                maxDate : 'today'
+            });
+
+            var valid = true;
+
+            $("#form").on("submit", function(){
+                //alert('fdfdf');
+                if(($('#hsc_year').val() - $('#ssc_year').val()) < 2){
+                    valid = false;
+                    alert("HSC year can't be lower than SSC year");
+                }
+                else{
+                    valid = true;
+                }
+
+                return valid;
+            });
+
+            var _URL = window.URL || window.webkitURL;
+    		$("#photo").change(function (e) {
+    		    var file, img;
+    		    if ((file = this.files[0])) {
+    		        img = new Image();
+    		        img.onload = function () {
+    		            if(this.width == 300 && this.height == 400){
+    		            	valid = true;
+    		            	var reader = new FileReader();
+    		            	reader.onload = function (e) {
+    		            	    $('#image').attr('src', e.target.result);
+    		            	}
+    		            	reader.readAsDataURL(file);
+    		            }
+    		            else{
+                            valid = false;
+    		            	$("#photo").val(null);
+    		            	alert("The photo size must be 300px*400px)");
+    		            }
+    		        };
+    		        img.src = _URL.createObjectURL(file);
+    		    }
+    		});
+
+            $("#sign").change(function (e) {
+    		    var file, img;
+    		    if ((file = this.files[0])) {
+    		        img = new Image();
+    		        img.onload = function () {
+    		            if(this.width == 140 && this.height == 60){
+    		            	valid = true;
+    		            	var reader = new FileReader();
+    		            	reader.onload = function (e) {
+    		            	    $('#image').attr('src', e.target.result);
+    		            	}
+    		            	reader.readAsDataURL(file);
+    		            }
+    		            else{
+                            valid = false;
+    		            	$("#sign").val(null);
+    		            	alert("The signature size must be 140px*60px)");
+    		            }
+    		        };
+    		        img.src = _URL.createObjectURL(file);
+    		    }
+    		});
+
+
+        });
+    </script>
 @endsection

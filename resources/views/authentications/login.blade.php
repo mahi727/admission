@@ -21,11 +21,15 @@
         }
     </style>
 
-    <div style="margin-left: 200px; margin-right: 200px; margin-top: 50px; margin-bottom: 10px">
-        <marquee attribute_name = "attribute_value" style="color: red;">
-            Online application submission has been extended till {{ date('M d, Y', \App\Setting::where('type', 'submission_date')->first()->value) }}. Exam Date has been rescheduled to {{ date('M d, Y', \App\Setting::where('type', 'exam_date')->first()->value) }}.
-        </marquee>
-    </div>
+
+        <div style="margin-left: 200px; margin-right: 200px; margin-top: 50px; margin-bottom: 10px">
+            @if (\App\Setting::where('type', 'circular_published')->first()->value == 1)
+                <marquee attribute_name = "attribute_value" style="color: red;">
+                    Online application submission has been extended till {{ date('M d, Y', \App\Setting::where('type', 'submission_date')->first()->value) }}. Exam Date has been rescheduled to {{ date('M d, Y', \App\Setting::where('type', 'exam_date')->first()->value) }}.
+                </marquee>
+            @endif
+        </div>
+
 
     <div class="container">
         <div class="card card-container">
@@ -37,13 +41,25 @@
                 <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                     <input id="username" type="text" class="form-control" name="email" placeholder="Email">
+
                 </div>
+                @if ($errors->has('email'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
+                @endif
                 </br>
 
                 <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                     <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+
                 </div>
+                @if ($errors->has('password'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('password') }}</strong>
+                    </span>
+                @endif
                 </br>
 
                 <div class="form-inline">

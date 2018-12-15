@@ -29,9 +29,15 @@
                 <div class="form-group">
                     <label class="control-label col-sm-3">Email ID:</label>
                     <div class="col-sm-8">
-                        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+                        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" value="{{ old('email') }}" required>
+                        @if ($errors->has('email'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('email') }}</strong>
+                            </span>
+                        @endif
                     </div>
                 </div>
+
 
                 <div class="form-group">
                     <label class="control-label col-sm-3">Name:</label>
@@ -63,6 +69,11 @@
                     <label class="control-label col-sm-3" for="password">Password:</label>
                     <div class="col-sm-8">
                         <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+                        @if ($errors->has('password'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('password') }}</strong>
+                            </span>
+                        @endif
                     </div>
                 </div>
 

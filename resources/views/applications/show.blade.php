@@ -205,32 +205,42 @@
                 <tbody>
                 <tr>
                     <td>
-                        <img src="{{ asset($application->photo) }}" alt="Photo">
+                        <img src="{{ asset($application->photo) }}" alt="Photo" style="height:100px; width: 75px">
                     </td>
                     <td>
                         <div> Applicant Photo </div>
                     </td>
+                    <td></td>
                 </tr>
 
                 <tr>
                     <td>
-                        <img src="{{ asset($application->sign) }}" alt="Sign">
+                        <img src="{{ asset($application->sign) }}" alt="Sign" style="height:40px; width: 80px">
                     </td>
                     <td>
                         <div> Applicant Sign</div>
                     </td>
+                    <td style="width: 50%;"></td>
                 </tr>
                 </tbody>
             </table>
 
-            @if ($application->approval_status != 'Eligible')
-                <hr>
-                <div class="form-inline">
-                    <div class="pull-right">
-                        <a href="{{ route('applications.approve', $application->id) }}" class="btn btn-success" title="cancel">Accept</a>
-                        <a href="{{ route('applications.decline', $application->id) }}" class="btn btn-danger" title="cancel">Decline</a>
-                    </div>
+            <div class="form-inline">
+                <div class="pull-left">
+                    <a href="{{ URL::previous() }}" class="btn btn-success" title="cancel">Cancel</a>
                 </div>
+            </div>
+
+            @if(Auth::user()->user_type != 'applicant')
+                @if ($application->approval_status != 'Eligible')
+                    <hr>
+                    <div class="form-inline">
+                        <div class="pull-right">
+                            <a href="{{ route('applications.approve', $application->id) }}" class="btn btn-success" title="cancel">Accept</a>
+                            <a href="{{ route('applications.decline', $application->id) }}" class="btn btn-danger" title="cancel">Decline</a>
+                        </div>
+                    </div>
+                @endif
             @endif
         </div>
 

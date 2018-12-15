@@ -5,7 +5,7 @@
  	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <style>
-        
+
          body {
         font-family: Helvetica,Arial,sans-serif;
         font-size: 14px;
@@ -36,7 +36,7 @@
 
     .top_middle {
         text-align: center;
-        width: 66.66666667%;  
+        width: 66.66666667%;
         float: left !important;
     }
 
@@ -87,7 +87,7 @@
     </style>
 <body>
 
-	
+
 
 	<div class="card card-container">
 
@@ -110,7 +110,7 @@
                 <h5><b>Admission Session {{ $application->year }}</b></h5>
             </div>
 		</div>
-                 
+
 
         <table class="table">
             <tr>
@@ -133,6 +133,7 @@
                         <label class="control-label col-sm-3">Exam Place:</label>
                         <div class="col-sm-8">
 							@php
+							$room = null;
 								foreach (\App\SeatPlan::all() as $key => $seatplan){
 									if(Auth::user()->application->roll >= $seatplan->starting_roll && Auth::user()->application->roll <= $seatplan->ending_roll){
 										$room = $seatplan->room_no;

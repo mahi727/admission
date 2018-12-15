@@ -36,7 +36,7 @@ class PaypalController extends Controller
     	// Reference the PayPal PHP REST SDK for details.
     	$transaction = PayPal::Transaction();
     	$transaction->setAmount($amount);
-    	$transaction->setDescription('Payment for verification');
+    	$transaction->setDescription('Payment for PGDIT Admission Fee');
     	$redirectUrls = PayPal:: RedirectUrls();
     	$redirectUrls->setReturnUrl(url('payment/done'));
     	$redirectUrls->setCancelUrl(url('payment/cancel'));
@@ -62,6 +62,7 @@ class PaypalController extends Controller
     	$paymentExecution = PayPal::PaymentExecution();
     	$paymentExecution->setPayerId($payer_id);
     	$executePayment = $payment->execute($paymentExecution, $this->_apiContext);
+
         $application = Auth::user()->application;
         $application->payment_status = 'Paid';
         $application->save();

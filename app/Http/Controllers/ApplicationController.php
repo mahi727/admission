@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Application;
+use App\Setting;
 use Auth;
 
 class ApplicationController extends Controller
@@ -15,7 +16,7 @@ class ApplicationController extends Controller
      */
     public function index()
     {
-        $applications = Application::all();
+        $applications = Application::where('session', Setting::where('type', 'session_year')->first()->value)->get();
         return view('admins.applications', compact('applications'));
     }
 
@@ -100,9 +101,12 @@ class ApplicationController extends Controller
 
         $application->application_id = Application::all()->last()->application_id + 1;
 
+        $application->session = Setting::where('type', 'session_year')->first()->value;
+
         if($application->save()){
-            redirect()->route('home');
+            return redirect()->route('home');
         }
+
         return back();
     }
 

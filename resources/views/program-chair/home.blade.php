@@ -20,13 +20,13 @@
         <div class="row content" style="margin-top: 5px">
 
             <div class="col-sm-2 sidenav">
-                @include('administrator.side_nav');
+                @include('administrator.side_nav')
             </div>
 
 
             <div class="col-sm-8 text-left">
                 <h4>Publish Admission Circular</h4>
-                
+
                 <form action="{{ route('circular.upload') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
@@ -50,7 +50,7 @@
 
                     </table>
 
-    
+
 
                     <div class="form-group">
                         <label class="control-label col-sm-6" style="margin-left: -10px;">Upload PGDIT circular as pdf format to publish it:</label>

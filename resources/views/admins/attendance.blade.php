@@ -23,7 +23,7 @@
                 </br>
 
                 <div class="form-group">
-                    <label class="control-label col-sm-6">Click the button t download attendance sheet:</label>
+                    <label class="control-label col-sm-6">Click the buttont download attendance sheet:</label>
                     <div class="col-sm-2" style="margin-top: -50px">
                          <a href="{{ route('attendance.download') }}">
                             <button class="btn btn-primary" style="margin-top: 45px">Download</button>

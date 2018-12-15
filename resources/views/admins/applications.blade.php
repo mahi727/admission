@@ -44,7 +44,9 @@
                                     <td>{{ $application->payment_status }}</td>
                                     <td>{{ $application->approval_status }}</td>
                                     <td>
-                                        <a href="{{ route('applications.show', $application->id) }}" class="btn btn-info">View</a>
+                                        @if (Auth::user()->user_type != 'program-chair')
+                                            <a href="{{ route('applications.show', $application->id) }}" class="btn btn-info">View</a>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

@@ -34,7 +34,7 @@
                 <div class="hide_div col-sm-3 pull-right ">
                     <nav class="navbar">
                     <ul class="nav navbar-nav">
-                        <li><a href="#">Change Password</a></li>
+                        <li><a href="{{ route('change_password') }}">Change Password</a></li>
                         <li><a href="{{ route('logout') }}" class="btn btn-light" title="logout">Logout</a></li>
                     </ul>
                     </nav>
